@@ -26,5 +26,3 @@ export async function sendEmail(html) {
     console.error('Erro ao enviar o e-mail:', error);
   }
 }
-
-module.exports = { sendEmail };
