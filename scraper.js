@@ -2,6 +2,7 @@ import fetch from "node-fetch";
 import * as cheerio from "cheerio";
 
 const url = "https://g1.globo.com/tecnologia/";
+const BASE_URL = "https://g1.globo.com";
 
 export async function fetchNoticias() {
   try {
@@ -17,11 +18,17 @@ export async function fetchNoticias() {
         $(this).find(".bstn-fd-picture-image").attr("src") ||
         $(this).find("img").attr("src");
 
+      // Garante que a URL da imagem seja absoluta
+      let imagemUrl = imagem;
+      if (imagem && !imagem.startsWith("http")) {
+        imagemUrl = BASE_URL + imagem;
+      }
+
       if (titulo) {
         noticias.push({
           titulo,
           resumo,
-          imagem,
+          imagem: imagemUrl,
         });
       }
     });
