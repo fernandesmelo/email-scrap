@@ -36,20 +36,14 @@ Siga os passos abaixo para clonar o repositório e iniciar o projeto localmente:
 
 #### 1. Clone o repositório
 ```bash
-git clone https://github.com/fernandesmelo/compet-2025-formacao-4.0-fundamentos-aplicacoes-data-science.git
+git clone https://github.com/fernandesmelo/scraper-email.git
 ```
 #### 2. Acesse a pasta do projeto
 ```bash
-cd app-rick-and-morty
+cd scraper-email
 ```
 
-#### 3. Instale o Expo CLI (caso não tenha)
-No terminal, rode:
-```bash
-npm install -g expo-cli
-```
-
-#### 4. Instale as dependências do projeto
+#### 3. Instale as dependências do projeto
 Ainda na pasta do projeto, rode:
 ```bash
 npm install
@@ -58,11 +52,7 @@ npm install
 #### 5. Rode o projeto
 No terminal, execute:
 ```bash
-npx expo start
+node app.js
 ```
-#### 6. Execute no seu celular
-* Baixe o app Expo Go na Play Store (Android) ou App Store (iOS).
-* Abra o app Expo Go no seu celular.
-* Escaneie o QR Code que aparece no terminal ou no navegador após rodar o comando acima.
-  
-Pronto! Agora você pode testar o app Rick and Morty no seu celular.
+
+Pronto! 
