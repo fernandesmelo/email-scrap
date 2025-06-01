@@ -1,7 +1,7 @@
 const fetch = require('node-fetch'); // Para buscar dados da URL
 const cheerio = require('cheerio'); // Para manipular e buscar dados no HTML
 
-const url = 'https://globoesporte.globo.com/pe/futebol/campeonato-pernambucano/';
+const url = 'https://g1.globo.com/tecnologia/';
 
 async function fetchData() {
     try {
