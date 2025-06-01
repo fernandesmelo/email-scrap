@@ -1,43 +1,35 @@
-const fetch = require('node-fetch'); // Para buscar dados da URL
-const cheerio = require('cheerio'); // Para manipular e buscar dados no HTML
+const fetch = require("node-fetch"); 
+const cheerio = require("cheerio"); 
 
-const url = 'https://g1.globo.com/tecnologia/';
+const url = "https://g1.globo.com/tecnologia/";
 
 async function fetchData() {
-    try {
-        // Faz a requisição da página
-        const response = await fetch(url);
-        const html = await response.text();
-        const $ = cheerio.load(html);
+  try {
+    const response = await fetch(url);
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-        // Verifica os seletores específicos da página
-        const tabelaStatus = $('.ranking-item-wrapper');
-        const tabelaJogador = [];
+    const noticias = [];
+    $(".feed-post").each(function () {
+      const titulo = $(this).find(".feed-post-body-title").text().trim();
+      const resumo = $(this).find(".feed-post-body-resumo").text().trim();
+      const imagem =
+        $(this).find(".bstn-fd-picture-image").attr("src") ||
+        $(this).find("img").attr("src");
 
-        // Itera sobre os elementos da tabela
-        tabelaStatus.each(function () {
-            const nomeJogador = $(this).find('.jogador-nome').text().trim();
-            const posicaoJogador = $(this).find('.jogador-posicao').text().trim();
-            const numeroGols = $(this).find('.jogador-gols').text().trim();
-            const timeJogador = $(this).find('.jogador-escudo > img').attr('alt')?.trim() || 'Time não identificado';
-
-            // Checa se os dados foram coletados corretamente antes de adicionar
-            if (nomeJogador && posicaoJogador && numeroGols && timeJogador) {
-                tabelaJogador.push({
-                    nomeJogador,
-                    posicaoJogador,
-                    numeroGols,
-                    timeJogador,
-                });
-            }
+      if (titulo) {
+        noticias.push({
+          titulo,
+          resumo,
+          imagem,
         });
+      }
+    });
 
-        // Exibe os dados no console
-        console.log(tabelaJogador);
-    } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-    }
+    console.log(noticias);
+  } catch (error) {
+    console.error("Erro ao buscar dados:", error);
+  }
 }
 
-// Executa a função
 fetchData();
