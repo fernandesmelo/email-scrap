@@ -1,9 +1,9 @@
-const fetch = require("node-fetch");
-const cheerio = require("cheerio");
+import fetch from "node-fetch";
+import cheerio from "cheerio";
 
 const url = "https://g1.globo.com/tecnologia/";
 
-async function fetchNoticias() {
+export async function fetchNoticias() {
   try {
     const response = await fetch(url);
     const html = await response.text();
@@ -33,9 +33,9 @@ async function fetchNoticias() {
   }
 }
 
-function montarHtml(noticias) {
+export function montarHtml(noticias) {
   let html = "<h2>Notícias de Tecnologia</h2>";
-  noticias.forEach(noticia => {
+  noticias.forEach((noticia) => {
     html += `<div style="margin-bottom:20px;">
       <h3>${noticia.titulo}</h3>
       <p>${noticia.resumo}</p>
@@ -44,5 +44,3 @@ function montarHtml(noticias) {
   });
   return html;
 }
-
-module.exports = { fetchNoticias, montarHtml };
