@@ -18,7 +18,6 @@ export async function fetchNoticias() {
         $(this).find(".bstn-fd-picture-image").attr("src") ||
         $(this).find("img").attr("src");
 
-      // Garante que a URL da imagem seja absoluta
       let imagemUrl = imagem;
       if (imagem && !imagem.startsWith("http")) {
         imagemUrl = BASE_URL + imagem;
