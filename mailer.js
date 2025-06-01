@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function sendEmail(html) {
+export async function sendEmail(html) {
   try {
     const info = await transporter.sendMail({
       from: `"Notícias Tecnologia" <${process.env.EMAIL_USER}>`,
