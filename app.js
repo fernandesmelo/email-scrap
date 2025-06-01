@@ -1,5 +1,5 @@
-const { fetchNoticias, montarHtml } = require('./scraper');
-const { sendEmail } = require('./mailer');
+import { fetchNoticias, montarHtml } from './scraper.js';
+import { sendEmail } from './mailer.js';
 
 async function main() {
   const noticias = await fetchNoticias();
