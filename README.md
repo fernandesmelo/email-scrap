@@ -44,7 +44,7 @@ cd scraper-email
 ```
 
 #### 3. Instale as dependências do projeto
-Ainda na pasta do projeto, rode:
+Ainda na pasta do projeto, rode no terminal:
 ```bash
 npm install
 ```
