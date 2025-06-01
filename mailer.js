@@ -15,7 +15,7 @@ export async function sendEmail(html) {
   try {
     const info = await transporter.sendMail({
       from: `"Notícias Tecnologia" <${process.env.EMAIL_USER}>`,
-      to: 'laercio.neto@edu.pe.senac.br',
+      to: 'laerciofernandesmelonetoo@gmail.com',
       subject: 'Notícias - Tecnologia',
       text: 'Veja as últimas notícias de tecnologia!',
       html: html,
