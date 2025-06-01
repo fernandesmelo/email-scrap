@@ -15,10 +15,10 @@ const transporter = nodemailer.createTransport({
 async function sendEmail() {
   try {
     const info = await transporter.sendMail({
-      from: `"Nome do Remetente" <${process.env.EMAIL_USER}>`, 
+      from: `"Notícias Tecnologia" <${process.env.EMAIL_USER}>`, 
       to: 'laercio.neto@edu.pe.senac.br', 
       subject: 'Notícias - Tecnologia', 
-      text: 'Conteúdo do e-mail em texto simples', 
+      text: 'Veja as últimas notícias de tecnologia!', 
       html: '<b>Conteúdo do e-mail em HTML</b>', 
     });
 
